@@ -1,5 +1,5 @@
 class Walker {
-  int x,y;
+  float x,y;
 
   Walker() {
     x = width/2;
@@ -11,11 +11,10 @@ class Walker {
     point(x,y);
   }
 
-  // Randomly move up, down, left, right, or stay in one place
   void step() {
     
-    float stepx = random(-0.5, 1.5);
-    float stepy = random(-0.5, 1.5);
+    float stepx = random(-1, 1);
+    float stepy = random(-1, 1);
     x += stepx;
     y += stepy;
   }
