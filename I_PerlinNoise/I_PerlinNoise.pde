@@ -1,5 +1,5 @@
 float increment = 0.02;
-float animationFactor = 0;
+float animationFactor = 0.0;
 
 void setup() {
   size(640,360);
@@ -10,7 +10,7 @@ void draw() {
   background(0);
   
   // Optional: adjust noise detail here
-  // noiseDetail(8,0.65f);
+  noiseDetail(8,0.65f);
   
   loadPixels();
 
@@ -24,7 +24,7 @@ void draw() {
       yoff += increment; // Increment yoff
       
       // Calculate noise and scale by 255
-      float bright = noise(xoff,yoff)*255;
+      float bright = noise(xoff,yoff, animationFactor)*255;
 
       // Try using this line instead
       //float bright = random(0,255);
@@ -35,4 +35,5 @@ void draw() {
   }
   
   updatePixels();
+  animationFactor += 0.01;
 }
