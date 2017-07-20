@@ -14,12 +14,9 @@ class Walker {
   // Randomly move up, down, left, right, or stay in one place
   void step() {
     
-    int stepx = int(random(3))-1;
-    int stepy = int(random(3))-1;
+    float stepx = random(-1, 1);
+    float stepy = random(-1, 1);
     x += stepx;
     y += stepy;
-
-    x = constrain(x,0,width-1);
-    y = constrain(y,0,height-1);
   }
 }
