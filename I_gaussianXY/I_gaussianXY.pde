@@ -4,17 +4,23 @@ Random generator;
 
 void setup() {
   size(640, 420);
-  background(120);
+  background(100);
   generator = new Random();
 }
 
+float getGaussian(){
+  return (float) generator.nextGaussian();
+}
+
 void draw() {
-  float num = (float) generator.nextGaussian();
+  
   float sd = 65;
   float mean = 340;
   
-  float x = sd * num + mean;
+  float x = sd * getGaussian() + mean;
+  float y = sd * getGaussian() + mean;
+  
   noStroke();
   fill(255, 10);
-  ellipse(x, 180, 16, 16);
+  ellipse(x, y, 16, 16);
 }
