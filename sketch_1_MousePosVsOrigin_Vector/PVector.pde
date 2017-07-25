@@ -16,4 +16,14 @@ class PVector {
     x = x - v.x;
     y = y - v.y;
   }
+  
+  void mul(float n){
+    x = x * n;
+    y = y * n;
+  }
+  
+  void div(float n){
+    x = x / n;
+    y = y / n;
+  }
 }
