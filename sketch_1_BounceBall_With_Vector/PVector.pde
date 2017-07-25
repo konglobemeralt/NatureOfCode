@@ -11,4 +11,9 @@ class PVector {
     y = y + v.y;
     x = x + v.x;
   }
+  
+  void sub(PVector v){
+    x = x - v.x;
+    y = y - v.y;
+  }
 }
