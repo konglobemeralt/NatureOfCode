@@ -7,7 +7,7 @@ class Mover {
   float topSpeed;
   
   Mover(){
-    position = new PVector(width/2, height/2);
+    position = new PVector(random(width), random(height));
     velocity = new PVector(0, 0);
     topSpeed = 5;
   
@@ -15,9 +15,12 @@ class Mover {
   
   void update(){
     PVector mouse = new PVector(mouseX, mouseY);
-    PVector acceleration = PVector.sub(mouse, position);
+    PVector dir = PVector.sub(mouse, position);
     
-    acceleration.setMag(0.2);
+    dir.normalize();
+    dir.mult(0.5);
+    acceleration = dir;
+
     velocity.add(acceleration);
     velocity.limit(topSpeed);
     position.add(velocity);
