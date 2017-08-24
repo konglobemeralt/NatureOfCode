@@ -3,27 +3,22 @@ class Mover {
   PVector position;
   PVector velocity;
   PVector acceleration;
-  
+  float mass;
   float topSpeed;
   
   Mover(){
     position = new PVector(random(width), random(height));
     velocity = new PVector(0, 0);
+    acceleration = new PVector(0, 0);
     topSpeed = 5;
-  
+    mass = 1;
   }
   
   void update(){
-    PVector mouse = new PVector(mouseX, mouseY);
-    PVector dir = PVector.sub(mouse, position);
-    
-    dir.normalize();
-    dir.mult(0.5);
-    acceleration = dir;
-
     velocity.add(acceleration);
     velocity.limit(topSpeed);
     position.add(velocity);
+    acceleration.mult(0);
   }
   
   void display(){
@@ -48,5 +43,10 @@ class Mover {
     else if(position.y < 0){
       position.y = height;
     }
+  }
+  
+  void applyForce(PVector force){
+    PVector f = PVector.div(force, mass);
+    acceleration.add(f);
   }
 }
